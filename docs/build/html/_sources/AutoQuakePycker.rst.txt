@@ -4,18 +4,18 @@ AutoQuakePycker package
 Submodules
 ----------
 
-AutoQuakePycker.main\_script module
------------------------------------
+AutoQuakePycker.mainscript module
+---------------------------------
 
-.. automodule:: AutoQuakePycker.main_script
+.. automodule:: AutoQuakePycker.mainscript
    :members:
    :undoc-members:
    :show-inheritance:
 
-AutoQuakePycker.picker\_funcs module
-------------------------------------
+AutoQuakePycker.pickerfuncs module
+----------------------------------
 
-.. automodule:: AutoQuakePycker.picker_funcs
+.. automodule:: AutoQuakePycker.pickerfuncs
    :members:
    :undoc-members:
    :show-inheritance:

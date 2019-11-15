@@ -7,7 +7,7 @@ Submodules
 AutoQuakePycker.main\_script module
 -----------------------------------
 
-.. automodule:: AutoQuakePycker.main_script
+.. automodule:: AutoQuakePycker.mainscript
    :members:
    :undoc-members:
    :show-inheritance:

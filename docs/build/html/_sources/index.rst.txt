@@ -6,10 +6,10 @@
 Welcome to AutoQuakePycker's documentation!
 ===========================================
 
-.. automodule:: AutoQuakePycker.main_script
+.. automodule:: AutoQuakePycker.mainscript
     :members:
 
- .. automodule:: AutoQuakePycker.picker_funcs
+.. automodule:: AutoQuakePycker.picker_funcs
     :members:
 
 .. toctree::
