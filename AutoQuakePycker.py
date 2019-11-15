@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """
+test
 30/09/19
 Tried using polarisation analysis as well (e.g. Ross et al. and Bailard et al.)
 - P and S filters and Dip-Rectilinearity value but did not produce consistent
