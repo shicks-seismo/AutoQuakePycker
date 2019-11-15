@@ -13,7 +13,6 @@ DESCRIPTION
     04/11/19
     Found that separate filters are needed for P and S-waves
     Added integration for S-wave picking
-    
     Final refinement takes S-picks on the T-component only to ensure that S is not
     mispicked as Sp precursors.
     Also computes magnitudes.
