@@ -12,6 +12,14 @@ AutoQuakePycker.main\_script module
    :undoc-members:
    :show-inheritance:
 
+AutoQuakePycker.picker\_funcs module
+------------------------------------
+
+.. automodule:: AutoQuakePycker.picker_funcs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------
