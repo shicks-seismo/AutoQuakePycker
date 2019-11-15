@@ -6,17 +6,12 @@
 Welcome to AutoQuakePycker's documentation!
 ===========================================
 
-.. automodule:: AutoQuakePycker.mainscript
-    :members:
-
-.. automodule:: AutoQuakePycker.picker_funcs
+.. automodule:: AutoQuakePycker
     :members:
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
-   modules
 
 Indices and tables
 ==================

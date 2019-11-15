@@ -11,6 +11,7 @@ def CF_kurtosis(kurt_win_size, tr):
     Returns
     ----------
     cf : kurtosis characteristic function time series
+    """
     nwind = int(np.ceil(kurt_win_size * tr.stats.sampling_rate))
     cf = np.zeros(tr.stats.npts)
     for i in range(nwind, tr.stats.npts-1):
