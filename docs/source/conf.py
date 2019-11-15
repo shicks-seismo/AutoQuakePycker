@@ -12,12 +12,11 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('..'))
 
 import sphinx_rtd_theme
 
-extensions = [
-    "sphinx_rtd_theme", 'sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon']
+extensions = ["sphinx_rtd_theme", 'sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon']
 
 html_theme = "sphinx_rtd_theme"
 

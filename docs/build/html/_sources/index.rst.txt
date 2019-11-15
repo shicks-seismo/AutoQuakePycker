@@ -6,7 +6,7 @@
 Welcome to AutoQuakePycker's documentation!
 ===========================================
 
-.. automodule:: AutoQuakePycker.main
+.. automodule:: AutoQuakePycker.main_script
     :members:
 
 .. toctree::
