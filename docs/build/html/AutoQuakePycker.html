@@ -82,9 +82,12 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">AutoQuakePycker package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#autoquakepycker-main-script-module">AutoQuakePycker.main_script module</a></li>
-<li><a class="reference internal" href="#autoquakepycker-picker-funcs-module">AutoQuakePycker.picker_funcs module</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-AutoQuakePycker.main_script">AutoQuakePycker.main_script module</a><ul>
+<li><a class="reference internal" href="#main-script-py">main_script.py</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-AutoQuakePycker.picker_funcs">AutoQuakePycker.picker_funcs module</a></li>
+<li><a class="reference internal" href="#module-AutoQuakePycker">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -156,14 +159,197 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="autoquakepycker-main-script-module">
-<h2>AutoQuakePycker.main_script module<a class="headerlink" href="#autoquakepycker-main-script-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-AutoQuakePycker.main_script">
+<span id="autoquakepycker-main-script-module"></span><h2>AutoQuakePycker.main_script module<a class="headerlink" href="#module-AutoQuakePycker.main_script" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-script-py">
+<h3>main_script.py<a class="headerlink" href="#main-script-py" title="Permalink to this headline">¶</a></h3>
+<p>test
+30/09/19
+Tried using polarisation analysis as well (e.g. Ross et al. and Bailard et al.)
+- P and S filters and Dip-Rectilinearity value but did not produce consistent
+results - bad polarisations - bad rotations - noisy data???
+These sections have been commented out.
+04/11/19
+Found that separate filters are needed for P and S-waves
+Added integration for S-wave picking</p>
+<p>Final refinement takes S-picks on the T-component only to ensure that S is not
+mispicked as Sp precursors.
+Also computes magnitudes.
+TODO: Consider picking on radial as well as transverse? (Preferentially select tranverse)
+TODO: Check memory usage - are some variables being appended to?
+TODO: Process TRN events
+TODO: 8/11 Discovered some duplicates with Lidong’s catalog (auto origin time
+from lassie was too far off to be detected
+TODO: Implement Sippl approach: If RMS too high, progressively remove picks with largest
+residuals until suitable RMS is found
+TODO: On first step, only use stations that are closest, then incorporate more distant
+arrivals in later iteration. Do this 1 pick at a time if after relocation the single residual
+of the new pick fell below a distance‐dependent goal residual (P:0.6 s + (traveltime)*0.015);
+(S: 1.0 s + (traveltime)*0.015</p>
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.CF_kurtosis">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">CF_kurtosis</code><span class="sig-paren">(</span><em class="sig-param">kurt_win_size</em>, <em class="sig-param">tr</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.CF_kurtosis" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the Kurtosis function of Baillard et al. (2014, SRL)
+(Eq. 10). Sets values outside of window to NaN.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.add_picks">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">add_picks</code><span class="sig-paren">(</span><em class="sig-param">sta</em>, <em class="sig-param">e</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">st</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.add_picks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add picks made to ObsPy event structure.
+:param sta: variable station &amp; picking data.
+:type sta: dict
+:param e: event.
+:type e: ObsPy event object
+:param orig_time: event origin time.
+:type orig_time: ObsPy UTCDateTime object
+:param st: stream of ObsPy traces containing data.
+:type st: Obspy stream object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>event containg added picks.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>e (ObsPy event object)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.compute_magnitude">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">compute_magnitude</code><span class="sig-paren">(</span><em class="sig-param">evt</em>, <em class="sig-param">st</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.compute_magnitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute local magnitude for event. Uses the same approach as Bie et al.
+(2019, SRL), although we don’t bother with checking signal-to-noise ratio
+this time.
+Args:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.compute_noise_levels">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">compute_noise_levels</code><span class="sig-paren">(</span><em class="sig-param">tr</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.compute_noise_levels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get simple estimate of trace noise level using STA/LTA function - similar
+to thhat described by Baillard et al. (2014, BSSA).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.copytree">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">copytree</code><span class="sig-paren">(</span><em class="sig-param">src</em>, <em class="sig-param">dst</em>, <em class="sig-param">symlinks=False</em>, <em class="sig-param">ignore=None</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.copytree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.do_smooth">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">do_smooth</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">WT</em>, <em class="sig-param">sample_rate</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.do_smooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple windowing smoothing function.
+(takes data to right of smoothing point).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.get_best_picks">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">get_best_picks</code><span class="sig-paren">(</span><em class="sig-param">sta</em>, <em class="sig-param">max_wind</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">comps</em>, <em class="sig-param">sptype</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.get_best_picks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define best Picks
+Choose whether to use fixed min S-P time or variable S-P time depending on
+P-arrival time and Vp/Vs ratio (Wadati method)
+This is quite messy. Could benefit from some improvements.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.get_theoretical_tt">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">get_theoretical_tt</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.get_theoretical_tt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find theoretical arrival times from NLLoc Time2EQ (containing 1 event).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.kurt_transform_f2">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">kurt_transform_f2</code><span class="sig-paren">(</span><em class="sig-param">f1</em>, <em class="sig-param">kurt_win_size</em>, <em class="sig-param">tr</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.kurt_transform_f2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transformations as per Baillard (BSSA).
+Remove neg slope of the CF from the sliding kurtosis fonction.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.kurt_transform_f3">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">kurt_transform_f3</code><span class="sig-paren">(</span><em class="sig-param">f2</em>, <em class="sig-param">kurt_win_size</em>, <em class="sig-param">tr</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.kurt_transform_f3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the linear trend of F2.
+Eq. 12</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.kurt_transform_f4">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">kurt_transform_f4</code><span class="sig-paren">(</span><em class="sig-param">f3</em>, <em class="sig-param">kurt_win_size</em>, <em class="sig-param">tr</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.kurt_transform_f4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find greatest minima correspond to the greatest onset strengths.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.plot_record_section">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">plot_record_section</code><span class="sig-paren">(</span><em class="sig-param">st_sta</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.plot_record_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.plot_sta_results">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">plot_sta_results</code><span class="sig-paren">(</span><em class="sig-param">sta</em>, <em class="sig-param">st_sta</em>, <em class="sig-param">runtype</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">pdf</em>, <em class="sig-param">fig</em>, <em class="sig-param">cmps</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.plot_sta_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot picking results for each station</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.process_events">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">process_events</code><span class="sig-paren">(</span><em class="sig-param">cat_data</em>, <em class="sig-param">n_run</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.process_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main function that runs a given set of events and does the
+multi-stage refinement.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.process_station">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">process_station</code><span class="sig-paren">(</span><em class="sig-param">sta</em>, <em class="sig-param">st_sta</em>, <em class="sig-param">dist</em>, <em class="sig-param">ev_dict</em>, <em class="sig-param">evt</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">phase</em>, <em class="sig-param">cmps</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.process_station" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ready to process data. Sets up emtpy arrays.
+Checks noise level of data.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.process_trace">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">process_trace</code><span class="sig-paren">(</span><em class="sig-param">n_tr</em>, <em class="sig-param">tr</em>, <em class="sig-param">sta</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">cmps</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.process_trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process picking on each trace parsed by process_station.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.refine_events">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">refine_events</code><span class="sig-paren">(</span><em class="sig-param">st</em>, <em class="sig-param">stations_dist</em>, <em class="sig-param">cmps</em>, <em class="sig-param">max_pick_diff</em>, <em class="sig-param">evt</em>, <em class="sig-param">do_plot</em>, <em class="sig-param">n_refine</em>, <em class="sig-param">fig</em>, <em class="sig-param">sptype</em>, <em class="sig-param">path_to_figs</em>, <em class="sig-param">ev_dict</em>, <em class="sig-param">ev_id</em>, <em class="sig-param">rot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.refine_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is one of the main functions of this code. It processes a refinement
+attempt for each event.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.relocate_nlloc">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">relocate_nlloc</code><span class="sig-paren">(</span><em class="sig-param">evt_refined</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.relocate_nlloc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carry out relocation using newly picked events in NonLinLoc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.rotate">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param">st</em>, <em class="sig-param">evt</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate raw 3-component data to ZRT coordinate system.
+Throws up flag if rotation cannot be done.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.main_script.write_evt">
+<code class="sig-prename descclassname">AutoQuakePycker.main_script.</code><code class="sig-name descname">write_evt</code><span class="sig-paren">(</span><em class="sig-param">evt</em>, <em class="sig-param">ev_id</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.main_script.write_evt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write refined event with new picks to stationxml file</p>
+</dd></dl>
+
 </div>
-<div class="section" id="autoquakepycker-picker-funcs-module">
-<h2>AutoQuakePycker.picker_funcs module<a class="headerlink" href="#autoquakepycker-picker-funcs-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-AutoQuakePycker.picker_funcs">
+<span id="autoquakepycker-picker-funcs-module"></span><h2>AutoQuakePycker.picker_funcs module<a class="headerlink" href="#module-AutoQuakePycker.picker_funcs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="AutoQuakePycker.picker_funcs.CF_kurtosis">
+<code class="sig-prename descclassname">AutoQuakePycker.picker_funcs.</code><code class="sig-name descname">CF_kurtosis</code><span class="sig-paren">(</span><em class="sig-param">kurt_win_size</em>, <em class="sig-param">tr</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.picker_funcs.CF_kurtosis" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the Kurtosis function of Baillard et al. (2014, SRL)
+(Eq. 10). Sets values outside of window to NaN.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-AutoQuakePycker">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-AutoQuakePycker" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
