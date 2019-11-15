@@ -34,7 +34,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="AutoQuakePycker" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,20 +79,23 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">AutoQuakePycker package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-AutoQuakePycker.main_script">AutoQuakePycker.main_script module</a><ul>
-<li><a class="reference internal" href="#main-script-py">main_script.py</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">AutoQuakePycker</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">AutoQuakePycker package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker.main_script">AutoQuakePycker.main_script module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-script-py">main_script.py</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-AutoQuakePycker.picker_funcs">AutoQuakePycker.picker_funcs module</a></li>
-<li><a class="reference internal" href="#module-AutoQuakePycker">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker.picker_funcs">AutoQuakePycker.picker_funcs module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker">Module contents</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+</ul>
+
             
           
         </div>
@@ -134,6 +138,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">AutoQuakePycker</a> &raquo;</li>
         
       <li>AutoQuakePycker package</li>
     
@@ -345,6 +351,20 @@ Throws up flag if rotation cannot be done.</p>
 <code class="sig-prename descclassname">AutoQuakePycker.picker_funcs.</code><code class="sig-name descname">CF_kurtosis</code><span class="sig-paren">(</span><em class="sig-param">kurt_win_size</em>, <em class="sig-param">tr</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.picker_funcs.CF_kurtosis" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the Kurtosis function of Baillard et al. (2014, SRL)
 (Eq. 10). Sets values outside of window to NaN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kurt_win_size</strong> (<em>kurtosis window length in seconds</em>) – </p></li>
+<li><p><strong>tr</strong> (<em>ObsPy trace object</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>cf</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kurtosis characteristic function time series</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -358,6 +378,13 @@ Throws up flag if rotation cannot be done.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="modules.html" class="btn btn-neutral float-left" title="AutoQuakePycker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
