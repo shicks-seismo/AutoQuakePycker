@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-main.py
+main_script.py
 ====================================
 test
 30/09/19
