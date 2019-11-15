@@ -9,6 +9,9 @@ Welcome to AutoQuakePycker's documentation!
 .. automodule:: AutoQuakePycker.main_script
     :members:
 
+ .. automodule:: AutoQuakePycker.picker_funcs
+    :members:
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
