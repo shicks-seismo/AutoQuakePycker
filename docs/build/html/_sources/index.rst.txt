@@ -6,6 +6,9 @@
 Welcome to AutoQuakePycker's documentation!
 ===========================================
 
+.. automodule:: my_project.main
+    :members:
+
 .. toctree::
    :maxdepth: 2
 
