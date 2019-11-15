@@ -11,9 +11,7 @@ Welcome to AutoQuakePycker's documentation!
 
 .. toctree::
    :maxdepth: 2
-
-   all-about-me
-
+   :caption: Contents:
 
 Indices and tables
 ==================
