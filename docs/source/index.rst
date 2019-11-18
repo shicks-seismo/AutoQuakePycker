@@ -53,7 +53,15 @@ Detailed description of workflow
 
 #. Read in preliminary event catalogue (current works for a QUAKEML formatted file).
 
-#. Split catalogue into chunks and split onto multiple cores for efficient processing.
+#. Split catalogue into chunks and split onto multiple cores for efficient processing, and process
+   each event. Make run directory for each process.
+
+#. Read in available seismic waveform data cut out around initial hypocentre guess. (TODO: Allow the option of 
+   reading in continuous data from an archive (e.g. SeisComp Data Structure - SDS).
+
+#. Get theoretical travel times based on initial hypocentre guess and velocity model for stations which have data.
+
+#. 
 
 
 .. toctree::

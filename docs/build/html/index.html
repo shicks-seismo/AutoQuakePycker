@@ -187,7 +187,12 @@ Time2EQ statements are also needed for computing the predicted travel-times for 
 <h2>Detailed description of workflow<a class="headerlink" href="#detailed-description-of-workflow" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Read in preliminary event catalogue (current works for a QUAKEML formatted file).</p></li>
-<li><p>Split catalogue into chunks and split onto multiple cores for efficient processing.</p></li>
+<li><p>Split catalogue into chunks and split onto multiple cores for efficient processing, and process
+each event. Make run directory for each process.</p></li>
+<li><p>Read in available seismic waveform data cut out around initial hypocentre guess. (TODO: Allow the option of
+reading in continuous data from an archive (e.g. SeisComp Data Structure - SDS).</p></li>
+<li><p>Get theoretical travel times based on initial hypocentre guess and velocity model for stations which have data.</p></li>
+<li></li>
 </ol>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">API docs:</span></p>
