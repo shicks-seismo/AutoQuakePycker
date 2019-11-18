@@ -25,7 +25,17 @@ Python functions (all available using Anconda - recommended method):
 
 * SciPy
 
+* matplotlib
+
 * ObsPy (http://www.obspy.org)
+
+Other software:
+
+* NonLinLoc (available to download from http://alomax.free.fr/nlloc/)
+
+In your run directory, you will need to provide a directory called "NLLOC_run" which contains
+the (pre-made) travel-time grids and control file comprising the nessecary statements for relocation.
+Time2EQ statements are also needed for computing the predicted travel-times for refining the picks.
 
 
 .. toctree::
