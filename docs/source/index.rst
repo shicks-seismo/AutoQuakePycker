@@ -12,13 +12,13 @@ AutoQuakePycker takes a first-guess catalogue of earthquake locations (I recomme
 easy-to-use and comprehnsive waveform back-project detection method of lassie 
 (https://gitext.gfz-potsdam.de/heimann/lassie), and then refines P- and S-wave arrival times 
 to produce a robust relocation. For relocation, AutoQuakePycker wraps the NonLinLoc package 
-(e.g. Lomax et al., 2009).
+(e.g. Lomax et al., 2009). All waveform processing is based on the ObsPy package.
 
 The picking is based on a Kurtosis characteristic function (KCF) which improves pick precision by
 computing the KCF over several frequency bandwiths, window sizes and smoothing parameters
 (Baillard et al., 2009, BSSA, doi: 10.1785/0120120347).
-Bad picks are refined and removed using a clustering procedure (Baillard et al., 2009), as well
-as 
+Bad picks are refined and removed using a clustering procedure (Baillard et al., 2014), as well
+as using iterative outlier rejection and distance-dependent residual goals (Sippl et al., 2013, JGR). 
 Please see the section below for a full description of the implemented workflow (some aspects
 are still work in progress!).
 
