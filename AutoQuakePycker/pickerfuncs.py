@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Various functions for the Kurtosis picker of AutoQuakePycker
-
-@author: Stephen Hicks
 """
 import numpy as np
 

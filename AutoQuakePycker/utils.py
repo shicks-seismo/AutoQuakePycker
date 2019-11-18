@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Routines for plotting the results of AutoQuakePycker
-
-@author: Stephen Hicks
 """
 from obspy import read_inventory
 import numpy as np
@@ -51,14 +49,14 @@ def add_picks(sta, e, orig_time, st, cfg):
 
     Parameters
     ----------
-        sta (dict) : variable station & picking data.
-        e (ObsPy event object) : event.
-        orig_time (ObsPy UTCDateTime object) : event origin time.
-        st (Obspy stream object) : stream of ObsPy traces containing data.
+        sta : variable station & picking data (dict)
+        e : event (ObsPy event object)
+        orig_time : event origin time (ObsPy UTCDateTime object)
+        st : stream of ObsPy traces containing data  (Obspy stream object)
 
     Returns
     ----------
-        e (ObsPy event object): event containg added picks.
+        e : event containg added picks (ObsPy event object).
     """
     from obspy.core.event import (Pick, WaveformStreamID, EvaluationMode,
                                   QuantityError)

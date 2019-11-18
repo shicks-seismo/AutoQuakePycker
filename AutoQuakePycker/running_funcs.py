@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Nov 18 11:23:39 2019
-
-@author: sph1r17
+Main functions for processing events on different processors
 """
 
 from utils import (rotate, do_smooth, add_picks, copytree, compute_magnitude,

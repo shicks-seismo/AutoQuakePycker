@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Various wrapping functions for integrating AutoQuakePycker with NonLinLoc
-
-@author: Stephen Hicks
 """
 import os
 import subprocess

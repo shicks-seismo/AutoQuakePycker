@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Routines for plotting the results of AutoQuakePycker
-
-@author: Stephen Hicks
 """
 import matplotlib.pyplot as plt
 import numpy as np
