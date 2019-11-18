@@ -51,6 +51,10 @@ Time2EQ statements are also needed for computing the predicted travel-times for 
 Detailed description of workflow
 ----------------
 
+#. Read in preliminary event catalogue (current works for a QUAKEML formatted file).
+
+#. Split catalogue into chunks and split onto multiple cores for efficient processing.
+
 
 .. toctree::
    :maxdepth: 2
