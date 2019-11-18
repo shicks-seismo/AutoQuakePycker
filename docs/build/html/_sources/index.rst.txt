@@ -20,7 +20,10 @@ computing the KCF over several frequency bandwiths, window sizes and smoothing p
 Bad picks are refined and removed using a clustering procedure (Baillard et al., 2014), as well
 as using iterative outlier rejection and distance-dependent residual goals (Sippl et al., 2013, JGR). 
 Please see the section below for a full description of the implemented workflow (some aspects
-are still work in progress!).
+are still work-in-progress!).
+
+Optionally, S-wave picking is carried out on the horizontal component traces rotated to the 
+transverse component, and integrated to displacement.
 
 AutoQuakePycker splits the input catalog into chunks to be run as different processes on
 multi CPUs for efficient processing of large datasets.
@@ -61,8 +64,10 @@ Detailed description of workflow
 
 #. Get theoretical travel times based on initial hypocentre guess and velocity model for stations which have data.
 
-#. 
+#. For each P and S phase, trim data in given window around theoretical arrival time. Length of window depends 
+   on how confident you can be on the initial location.
 
+#. For each filter bandpass and Kurtosis window length, compute the KCF. 
 
 .. toctree::
    :maxdepth: 2
