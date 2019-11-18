@@ -1,0 +1,46 @@
+input:  # INPUT OPTIONS
+    lassie_cat_file: "../new_event_detections.xml"
+    DIR_TO_EVENTDIRS: "../events/events"
+run:
+    nproc: 1   # If "auto" then use number of available processors
+output:
+    FORCE_RECALC: False  # Choose whether or not to overwrite existing events
+sig_noise:  # SNR / NOISE OPTIONS
+    SNR_WIN: [5, 1]  # Long-time short time window for finding trace noise level
+    SNR_FREQ: [4, 8]  # Bandpass [low-cut, high-cut] filter freq for computing SNR
+    MAX_NOISE_LEVEL: 50.0  # Max. noise level to reject trace
+    SNR_SMOOTH_WIN: 1.0  # Window length for SNR smoothing
+sta_select:  # STATION SELECTION OPTIONS
+    MAX_DIST: 275  # Max station-event distance to pick on station
+    STA_BLACKLIST:= ["BAUV", "TRNT"]
+picking:  # KURTOSIS PICKING OPTIONS
+    # Components to use at different refinement stages:
+    CMPS_REFINE_1: {"P": ["Z", "H"], "S": ["1", "2", "N", "E"]}
+    CMPS_REFINE_2: {"P": ["Z", "H"], "S": ["T", "R"]}
+    INTEGRATE_S: True  # Choose whether to integrate to pick S-wave arrival
+    # Maximum allowed difference between theoretical arrival time & pick (in secs):
+    # (smaller values = faster processing)
+    # (final value should be set to maximum possible travel-time residual)
+    MAX_PICK_DIFF_REFINE1: 12.0
+    MAX_PICK_DIFF_REFINE2: 3.5
+    KURT_WINS: [2, 4, 6]  # Kurtosis smoothing window lengths (s) for f1
+    # P[0]- & S[1]-wave (no. filters need to be the same):
+    FILT_WINS: {"P": [[4, 12], [10, 18]], "S": [[2, 6], [3, 8]]}
+    CF_MEAN_SMOOTH_WIND: [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.08, 0.06]
+    MAX_DRIFT: 0.12  # Max dt between increasingly roughened windows of f4
+    MIN_SP_TIME: 2.5  # Minimum S-P time in seconds for first refinement
+    # Most-smoothed Kurtosis values (f1) to choose pick weighting [0, 1, 2, 3, 4]
+    KURT2WGHT: {"P": [6, 4.8, 4, 2.9, 0], "S": [6, 4.8, 4, 2.9, 0]}
+    # Translation between weight and arrival time uncertainty for NonLinLoc
+    # [0, 1, 2, 3, 4]
+    T_ERRORS: [0.1, 0.2, 0.6, 1.2, 99.9]
+mag_calc:  # MAGNITUDE CALCULATION OPTIONS
+    ML_CAL: [1., 3.01e-3, 3.]  # ML calibration abc values (default: BakunJoyner)
+    MAX_DIST_ML: 400.0  # Max epicentral distance to compute station ML value
+    V_MIN: 3.0  # Minimum velocity to compute amplitude pick window
+    MAX_WINDOW: 150.0  # Maximum window legnth for amplitude picking
+    MAG_HIGHPAS: 2  # High-pass filter for amplitude picking
+plotting:  # PLOTTING OPTIONS
+    DO_PLOT_1: True
+    DO_PLOT_2: True
+    PLOT_WIND_PICK_DIFF: 4.0  # Secs to plot around picked arr.
