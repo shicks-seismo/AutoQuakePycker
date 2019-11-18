@@ -14,8 +14,18 @@ easy-to-use and comprehnsive waveform back-project detection method of lassie
 to produce a robust relocation. For relocation, AutoQuakePycker wraps the NonLinLoc package 
 (e.g. Lomax et al., 2009).
 
+The picking is based on a Kurtosis characteristic function (KCF) which improves pick precision by
+computing the KCF over several frequency bandwiths, window sizes and smoothing parameters
+(Baillard et al., 2009, BSSA, doi: 10.1785/0120120347).
+Bad picks are refined and removed using a clustering procedure (Baillard et al., 2009), as well
+as 
+Please see the section below for a full description of the implemented workflow (some aspects
+are still work in progress!).
+
 AutoQuakePycker splits the input catalog into chunks to be run as different processes on
 multi CPUs for efficient processing of large datasets.
+
+Output hypocentres are given as a STATIONXML file per event.
 
 Pre-requisites
 --------------
