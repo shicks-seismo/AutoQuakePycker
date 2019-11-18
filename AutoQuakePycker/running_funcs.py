@@ -24,7 +24,7 @@ def AutoQuakePycker_run():
     import multiprocessing
     import logging
     import more_itertools as mit
-    import munchify
+    from munch import munchify
     import os
     import yaml
     from obspy import read_events, Catalog

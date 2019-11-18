@@ -9,7 +9,7 @@ AutoQuakePycker
 AutoQuakePycker is a Python package for the automatic and iterative picking, relocation, determination
 of local magnitudes, and computation of focal mechanism [TODO] for local seismic events. 
 AutoQuakePycker takes a first-guess catalogue of earthquake locations (I recommend the very
-easy-to-use and comprehnsive waveform back-project detection method of lassie 
+easy-to-use and comprehnsive waveform back-projection detection method of lassie 
 (https://gitext.gfz-potsdam.de/heimann/lassie), and then refines P- and S-wave arrival times 
 to produce a robust relocation. For relocation, AutoQuakePycker wraps the NonLinLoc package 
 (e.g. Lomax et al., 2009). All waveform processing is based on the ObsPy package.
@@ -29,8 +29,7 @@ transverse component, and integrated to displacement.
 AutoQuakePycker splits the input catalog into chunks to be run as different processes on
 multi CPUs for efficient processing of large datasets.
 
-Output hypocentres, arrival times, picks, magnitudes, and polarities
-are given in a QUAKEML file per event.
+Output hypocentres, arrival times, picks, magnitudes, and polarities are given in a QUAKEML file per event.
 
 Pre-requisites
 --------------
