@@ -13,7 +13,7 @@ def plot_sta_results(sta, st_sta, runtype, orig_time, pdf, fig, cmps, cfg):
 
     Parameters
     ----------
-    sta: Dictionary of station pick results
+    sta : Dictionary of station pick results
     st_sta : ObsPy stream containing waveform data for station
     runtype :
     tr : ObsPy trace object

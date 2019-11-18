@@ -4,13 +4,68 @@
 Main functions for processing events on different processors
 """
 
-from utils import (rotate, do_smooth, add_picks, copytree, compute_magnitude,
-                   write_evt, compute_noise_levels)
-from pickerfuncs import (CF_kurtosis, kurt_transform_f2, kurt_transform_f3,
-                         kurt_transform_f4, get_best_picks)
-from nlloc_wrapping import relocate, get_theoretical_tt
-from plotting import plot_sta_results
+from AutoQuakePycker.utils import (rotate, do_smooth, add_picks, copytree,
+                                   compute_magnitude, write_evt,
+                                   compute_noise_levels)
+from AutoQuakePycker.pickerfuncs import (
+        CF_kurtosis, kurt_transform_f2, kurt_transform_f3, kurt_transform_f4,
+        get_best_picks)
+from AutoQuakePycker.nlloc_wrapping import relocate, get_theoretical_tt
+from AutoQuakePycker.plotting import plot_sta_results
 import numpy as np
+
+
+def AutoQuakePycker_run():
+    """
+    Starts up AutoQuakePycker and sets-up processes
+    """
+    import glob
+    from itertools import product
+    import multiprocessing
+    import logging
+    import more_itertools as mit
+    import munchify
+    import os
+    import yaml
+    from obspy import read_events, Catalog
+
+    logger = multiprocessing.log_to_stderr(logging.DEBUG)
+    # Read in config file
+    with open("config.yaml", "r") as ymlfile:
+        cfg = munchify(yaml.safe_load(ymlfile))
+    initial_cat = read_events(cfg.input.lassie_cat_file)
+
+    # Read in station locations from file
+    sta_list = [[l.split()[1], float(l.split()[3]), float(l.split()[4])] for l
+                in open("NLLOC_run/run.in", "r") if l.split()[0] == "GTSRCE"]
+    sta_locs = {sta[0]: {"lat": sta[1], "lon": sta[2]} for sta in sta_list}
+    if cfg.output.FORCE_RECALC is True:
+        filelist = glob.glob(os.path.join("refined_events", "*.xml"))
+        for f in filelist:
+            os.remove(f)
+    if cfg.run.nproc == "auto":
+        nproc = multiprocessing.cpu_count()
+    else:
+        nproc = cfg.run.nproc
+    # Get events for which data currently is available
+    cat_filter = Catalog()
+    for n, event in enumerate(initial_cat):
+        e_id = event.event_descriptions[0].text
+        if e_id in os.listdir("{:}/".format(cfg.input.DIR_TO_EVENTDIRS)):
+            if (cfg.output.FORCE_RECALC is False and
+                    os.path.exists("refined_events/{:}.xml".format(e_id))):
+                print("Already have this evening ... skipping")
+            else:
+                cat_filter.append(event)
+    # Split catalogue across multiple processes and process in parallel
+    cat_split = [i for i in mit.divide(nproc, cat_filter)]
+    # process_events(cat_split[7], 7)
+    pool = multiprocessing.Pool(processes=nproc)
+    print("hello")
+    a = pool.starmap(process_events, product(cat_split, range(nproc), cfg,
+                                             sta_locs))
+
+    logger.debug(a)
 
 
 def process_events(cat_data, n_run, cfg, sta_locs):

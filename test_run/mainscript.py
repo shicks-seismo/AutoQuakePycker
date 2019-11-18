@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+"""
+mainscript.py
+====================================
+test
+30/09/19
+Tried using polarisation analysis as well (e.g. Ross et al. and Bailard et al.)
+- P and S filters and Dip-Rectilinearity value but did not produce consistent
+results - bad polarisations - bad rotations - noisy data???
+These sections have been commented out.
+04/11/19
+Found that separate filters are needed for P and S-waves
+Added integration for S-wave picking
+
+Final refinement takes S-picks on the T-component only to ensure that S is not
+mispicked as Sp precursors.
+Also computes magnitudes.
+TODO: Consider picking on radial as well as transverse? (Preferentially select tranverse)
+TODO: Check memory usage - are some variables being appended to?
+TODO: Process TRN events
+TODO: 8/11 Discovered some duplicates with Lidong's catalog (auto origin time
+from lassie was too far off to be detected
+TODO: Implement Sippl approach: If RMS too high, progressively remove picks with largest 
+residuals until suitable RMS is found
+TODO: On first step, only use stations that are closest, then incorporate more distant 
+arrivals in later iteration. Do this 1 pick at a time if after relocation the single residual
+of the new pick fell below a distance‐dependent goal residual (P:0.6 s + (traveltime)*0.015);
+(S: 1.0 s + (traveltime)*0.015
+"""
+
+import sys
+sys.path.append('..')
+from AutoQuakePycker.running_funcs import AutoQuakePycker_run
+
+
+# Main function
+# Read in catalogues
+if __name__ == '__main__':
+    AutoQuakePycker_run()

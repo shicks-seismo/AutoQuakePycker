@@ -248,7 +248,7 @@ def write_evt(evt, ev_id):
 
     Parameters
     ----------
-        evt: Obspy event object
+        evt : Obspy event object
         ev_id : Event ID (str)
     """
     print("Writing xml file")

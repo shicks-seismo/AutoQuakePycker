@@ -168,7 +168,6 @@
 <div class="section" id="module-AutoQuakePycker.nlloc_wrapping">
 <span id="autoquakepycker-nlloc-wrapping-module"></span><h2>AutoQuakePycker.nlloc_wrapping module<a class="headerlink" href="#module-AutoQuakePycker.nlloc_wrapping" title="Permalink to this headline">¶</a></h2>
 <p>Various wrapping functions for integrating AutoQuakePycker with NonLinLoc</p>
-<p>&#64;author: Stephen Hicks</p>
 <dl class="function">
 <dt id="AutoQuakePycker.nlloc_wrapping.get_theoretical_tt">
 <code class="sig-prename descclassname">AutoQuakePycker.nlloc_wrapping.</code><code class="sig-name descname">get_theoretical_tt</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.nlloc_wrapping.get_theoretical_tt" title="Permalink to this definition">¶</a></dt>
@@ -187,8 +186,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="AutoQuakePycker.nlloc_wrapping.relocate_nlloc">
-<code class="sig-prename descclassname">AutoQuakePycker.nlloc_wrapping.</code><code class="sig-name descname">relocate_nlloc</code><span class="sig-paren">(</span><em class="sig-param">evt_refined</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.nlloc_wrapping.relocate_nlloc" title="Permalink to this definition">¶</a></dt>
+<dt id="AutoQuakePycker.nlloc_wrapping.relocate">
+<code class="sig-prename descclassname">AutoQuakePycker.nlloc_wrapping.</code><code class="sig-name descname">relocate</code><span class="sig-paren">(</span><em class="sig-param">evt_refined</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.nlloc_wrapping.relocate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry out relocation using newly picked events in NonLinLoc</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -210,7 +209,6 @@
 <div class="section" id="module-AutoQuakePycker.pickerfuncs">
 <span id="autoquakepycker-pickerfuncs-module"></span><h2>AutoQuakePycker.pickerfuncs module<a class="headerlink" href="#module-AutoQuakePycker.pickerfuncs" title="Permalink to this headline">¶</a></h2>
 <p>Various functions for the Kurtosis picker of AutoQuakePycker</p>
-<p>&#64;author: Stephen Hicks</p>
 <dl class="function">
 <dt id="AutoQuakePycker.pickerfuncs.CF_kurtosis">
 <code class="sig-prename descclassname">AutoQuakePycker.pickerfuncs.</code><code class="sig-name descname">CF_kurtosis</code><span class="sig-paren">(</span><em class="sig-param">kurt_win_size</em>, <em class="sig-param">tr</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.pickerfuncs.CF_kurtosis" title="Permalink to this definition">¶</a></dt>
@@ -325,7 +323,6 @@ Eq. 12</p>
 <div class="section" id="module-AutoQuakePycker.plotting">
 <span id="autoquakepycker-plotting-module"></span><h2>AutoQuakePycker.plotting module<a class="headerlink" href="#module-AutoQuakePycker.plotting" title="Permalink to this headline">¶</a></h2>
 <p>Routines for plotting the results of AutoQuakePycker</p>
-<p>&#64;author: Stephen Hicks</p>
 <dl class="function">
 <dt id="AutoQuakePycker.plotting.plot_record_section">
 <code class="sig-prename descclassname">AutoQuakePycker.plotting.</code><code class="sig-name descname">plot_record_section</code><span class="sig-paren">(</span><em class="sig-param">st_sta</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.plotting.plot_record_section" title="Permalink to this definition">¶</a></dt>
@@ -357,8 +354,13 @@ Eq. 12</p>
 </div>
 <div class="section" id="module-AutoQuakePycker.running_funcs">
 <span id="autoquakepycker-running-funcs-module"></span><h2>AutoQuakePycker.running_funcs module<a class="headerlink" href="#module-AutoQuakePycker.running_funcs" title="Permalink to this headline">¶</a></h2>
-<p>Created on Mon Nov 18 11:23:39 2019</p>
-<p>&#64;author: sph1r17</p>
+<p>Main functions for processing events on different processors</p>
+<dl class="function">
+<dt id="AutoQuakePycker.running_funcs.AutoQuakePycker_run">
+<code class="sig-prename descclassname">AutoQuakePycker.running_funcs.</code><code class="sig-name descname">AutoQuakePycker_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.running_funcs.AutoQuakePycker_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts up AutoQuakePycker and sets-up processes</p>
+</dd></dl>
+
 <dl class="function">
 <dt id="AutoQuakePycker.running_funcs.process_events">
 <code class="sig-prename descclassname">AutoQuakePycker.running_funcs.</code><code class="sig-name descname">process_events</code><span class="sig-paren">(</span><em class="sig-param">cat_data</em>, <em class="sig-param">n_run</em>, <em class="sig-param">cfg</em>, <em class="sig-param">sta_locs</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.running_funcs.process_events" title="Permalink to this definition">¶</a></dt>
@@ -390,7 +392,6 @@ attempt for each event.</p>
 <div class="section" id="module-AutoQuakePycker.utils">
 <span id="autoquakepycker-utils-module"></span><h2>AutoQuakePycker.utils module<a class="headerlink" href="#module-AutoQuakePycker.utils" title="Permalink to this headline">¶</a></h2>
 <p>Routines for plotting the results of AutoQuakePycker</p>
-<p>&#64;author: Stephen Hicks</p>
 <dl class="function">
 <dt id="AutoQuakePycker.utils.add_picks">
 <code class="sig-prename descclassname">AutoQuakePycker.utils.</code><code class="sig-name descname">add_picks</code><span class="sig-paren">(</span><em class="sig-param">sta</em>, <em class="sig-param">e</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">st</em>, <em class="sig-param">cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.utils.add_picks" title="Permalink to this definition">¶</a></dt>
@@ -398,17 +399,17 @@ attempt for each event.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>(</strong><strong>dict</strong><strong>)</strong> (<em>sta</em>) – </p></li>
-<li><p><strong>(</strong><strong>ObsPy event object</strong><strong>)</strong> (<em>e</em>) – </p></li>
-<li><p><strong>(</strong><strong>ObsPy UTCDateTime object</strong><strong>)</strong> (<em>orig_time</em>) – </p></li>
-<li><p><strong>(</strong><strong>Obspy stream object</strong><strong>)</strong> (<em>st</em>) – </p></li>
+<li><p><strong>sta</strong> (<em>variable station &amp; picking data</em><em> (</em><em>dict</em><em>)</em>) – </p></li>
+<li><p><strong>e</strong> (<em>event</em><em> (</em><em>ObsPy event object</em><em>)</em>) – </p></li>
+<li><p><strong>orig_time</strong> (<em>event origin time</em><em> (</em><em>ObsPy UTCDateTime object</em><em>)</em>) – </p></li>
+<li><p><strong>st</strong> (<em>stream of ObsPy traces containing data</em><em>  (</em><em>Obspy stream object</em><em>)</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>e (ObsPy event object)</strong></p>
+<dd class="field-even"><p><strong>e</strong></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>event containg added picks.</p>
+<dd class="field-odd"><p>event containg added picks (ObsPy event object)</p>
 </dd>
 </dl>
 </dd></dl>
