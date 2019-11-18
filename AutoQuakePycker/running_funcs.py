@@ -10,7 +10,7 @@ from utils import (rotate, do_smooth, add_picks, copytree, compute_magnitude,
                    write_evt, compute_noise_levels)
 from pickerfuncs import (CF_kurtosis, kurt_transform_f2, kurt_transform_f3,
                          kurt_transform_f4, get_best_picks)
-from nlloc_wrapping import relocate_nlloc, get_theoretical_tt
+from nlloc_wrapping import relocate, get_theoretical_tt
 from plotting import plot_sta_results
 import numpy as np
 
@@ -311,7 +311,7 @@ def refine_events(st, stations_dist, cmps, max_pick_diff, evt, do_plot,
 
     if do_plot is True:
         pdf.close()
-    evt_refine_out = relocate_nlloc(evt)
+    evt_refine_out = relocate(evt)
     if evt_refine_out == []:
         print("Relocation failed - skipping event")
         found = False

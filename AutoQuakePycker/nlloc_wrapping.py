@@ -9,7 +9,7 @@ import os
 import subprocess
 
 
-def relocate_nlloc(evt_refined):
+def relocate(evt_refined):
     """
     Carry out relocation using newly picked events in NonLinLoc
 
