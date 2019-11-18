@@ -25,7 +25,8 @@ are still work in progress!).
 AutoQuakePycker splits the input catalog into chunks to be run as different processes on
 multi CPUs for efficient processing of large datasets.
 
-Output hypocentres are given as a STATIONXML file per event.
+Output hypocentres, arrival times, picks, magnitudes, and polarities
+are given in a QUAKEML file per event.
 
 Pre-requisites
 --------------
@@ -46,6 +47,9 @@ Other software:
 In your run directory, you will need to provide a directory called "NLLOC_run" which contains
 the (pre-made) travel-time grids and control file comprising the nessecary statements for relocation.
 Time2EQ statements are also needed for computing the predicted travel-times for refining the picks.
+
+Detailed description of workflow
+----------------
 
 
 .. toctree::
