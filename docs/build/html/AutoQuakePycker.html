@@ -84,8 +84,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">AutoQuakePycker</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">AutoQuakePycker package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#autoquakepycker-mainscript-module">AutoQuakePycker.mainscript module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker.nlloc_wrapping">AutoQuakePycker.nlloc_wrapping module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker.pickerfuncs">AutoQuakePycker.pickerfuncs module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker.plotting">AutoQuakePycker.plotting module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker.running_funcs">AutoQuakePycker.running_funcs module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker.utils">AutoQuakePycker.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-AutoQuakePycker">Module contents</a></li>
 </ul>
 </li>
@@ -162,8 +165,47 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="autoquakepycker-mainscript-module">
-<h2>AutoQuakePycker.mainscript module<a class="headerlink" href="#autoquakepycker-mainscript-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-AutoQuakePycker.nlloc_wrapping">
+<span id="autoquakepycker-nlloc-wrapping-module"></span><h2>AutoQuakePycker.nlloc_wrapping module<a class="headerlink" href="#module-AutoQuakePycker.nlloc_wrapping" title="Permalink to this headline">¶</a></h2>
+<p>Various wrapping functions for integrating AutoQuakePycker with NonLinLoc</p>
+<p>&#64;author: Stephen Hicks</p>
+<dl class="function">
+<dt id="AutoQuakePycker.nlloc_wrapping.get_theoretical_tt">
+<code class="sig-prename descclassname">AutoQuakePycker.nlloc_wrapping.</code><code class="sig-name descname">get_theoretical_tt</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.nlloc_wrapping.get_theoretical_tt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find theoretical arrival times from NLLoc Time2EQ (containing 1 event).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>ObsPy event object</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>e</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ObsPy event object containing theoretical arrival times</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.nlloc_wrapping.relocate_nlloc">
+<code class="sig-prename descclassname">AutoQuakePycker.nlloc_wrapping.</code><code class="sig-name descname">relocate_nlloc</code><span class="sig-paren">(</span><em class="sig-param">evt_refined</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.nlloc_wrapping.relocate_nlloc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carry out relocation using newly picked events in NonLinLoc</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>evt_refined</strong> (<em>ObsPy event object</em>) – </p></li>
+<li><p><strong>tr</strong> (<em>ObsPy trace object</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ev_new</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ObsPy event object containing relocated event</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-AutoQuakePycker.pickerfuncs">
 <span id="autoquakepycker-pickerfuncs-module"></span><h2>AutoQuakePycker.pickerfuncs module<a class="headerlink" href="#module-AutoQuakePycker.pickerfuncs" title="Permalink to this headline">¶</a></h2>
@@ -275,6 +317,201 @@ Eq. 12</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>f4 kurtosis transform time series</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-AutoQuakePycker.plotting">
+<span id="autoquakepycker-plotting-module"></span><h2>AutoQuakePycker.plotting module<a class="headerlink" href="#module-AutoQuakePycker.plotting" title="Permalink to this headline">¶</a></h2>
+<p>Routines for plotting the results of AutoQuakePycker</p>
+<p>&#64;author: Stephen Hicks</p>
+<dl class="function">
+<dt id="AutoQuakePycker.plotting.plot_record_section">
+<code class="sig-prename descclassname">AutoQuakePycker.plotting.</code><code class="sig-name descname">plot_record_section</code><span class="sig-paren">(</span><em class="sig-param">st_sta</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.plotting.plot_record_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.plotting.plot_sta_results">
+<code class="sig-prename descclassname">AutoQuakePycker.plotting.</code><code class="sig-name descname">plot_sta_results</code><span class="sig-paren">(</span><em class="sig-param">sta</em>, <em class="sig-param">st_sta</em>, <em class="sig-param">runtype</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">pdf</em>, <em class="sig-param">fig</em>, <em class="sig-param">cmps</em>, <em class="sig-param">cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.plotting.plot_sta_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot picking results for each station</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sta</strong> (<em>Dictionary of station pick results</em>) – </p></li>
+<li><p><strong>st_sta</strong> (<em>ObsPy stream containing waveform data for station</em>) – </p></li>
+<li><p><strong>runtype</strong> – </p></li>
+<li><p><strong>tr</strong> (<em>ObsPy trace object</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ev_new</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ObsPy event object containing relocated event</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-AutoQuakePycker.running_funcs">
+<span id="autoquakepycker-running-funcs-module"></span><h2>AutoQuakePycker.running_funcs module<a class="headerlink" href="#module-AutoQuakePycker.running_funcs" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mon Nov 18 11:23:39 2019</p>
+<p>&#64;author: sph1r17</p>
+<dl class="function">
+<dt id="AutoQuakePycker.running_funcs.process_events">
+<code class="sig-prename descclassname">AutoQuakePycker.running_funcs.</code><code class="sig-name descname">process_events</code><span class="sig-paren">(</span><em class="sig-param">cat_data</em>, <em class="sig-param">n_run</em>, <em class="sig-param">cfg</em>, <em class="sig-param">sta_locs</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.running_funcs.process_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main function that runs a given set of events and does the
+multi-stage refinement.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.running_funcs.process_station">
+<code class="sig-prename descclassname">AutoQuakePycker.running_funcs.</code><code class="sig-name descname">process_station</code><span class="sig-paren">(</span><em class="sig-param">sta</em>, <em class="sig-param">st_sta</em>, <em class="sig-param">dist</em>, <em class="sig-param">ev_dict</em>, <em class="sig-param">evt</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">phase</em>, <em class="sig-param">cmps</em>, <em class="sig-param">cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.running_funcs.process_station" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ready to process data. Sets up emtpy arrays.
+Checks noise level of data.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.running_funcs.process_trace">
+<code class="sig-prename descclassname">AutoQuakePycker.running_funcs.</code><code class="sig-name descname">process_trace</code><span class="sig-paren">(</span><em class="sig-param">n_tr</em>, <em class="sig-param">tr</em>, <em class="sig-param">sta</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">cmps</em>, <em class="sig-param">cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.running_funcs.process_trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process picking on each trace parsed by process_station.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.running_funcs.refine_events">
+<code class="sig-prename descclassname">AutoQuakePycker.running_funcs.</code><code class="sig-name descname">refine_events</code><span class="sig-paren">(</span><em class="sig-param">st</em>, <em class="sig-param">stations_dist</em>, <em class="sig-param">cmps</em>, <em class="sig-param">max_pick_diff</em>, <em class="sig-param">evt</em>, <em class="sig-param">do_plot</em>, <em class="sig-param">n_refine</em>, <em class="sig-param">fig</em>, <em class="sig-param">sptype</em>, <em class="sig-param">path_to_figs</em>, <em class="sig-param">ev_dict</em>, <em class="sig-param">ev_id</em>, <em class="sig-param">cfg</em>, <em class="sig-param">rot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.running_funcs.refine_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is one of the main functions of this code. It processes a refinement
+attempt for each event.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-AutoQuakePycker.utils">
+<span id="autoquakepycker-utils-module"></span><h2>AutoQuakePycker.utils module<a class="headerlink" href="#module-AutoQuakePycker.utils" title="Permalink to this headline">¶</a></h2>
+<p>Routines for plotting the results of AutoQuakePycker</p>
+<p>&#64;author: Stephen Hicks</p>
+<dl class="function">
+<dt id="AutoQuakePycker.utils.add_picks">
+<code class="sig-prename descclassname">AutoQuakePycker.utils.</code><code class="sig-name descname">add_picks</code><span class="sig-paren">(</span><em class="sig-param">sta</em>, <em class="sig-param">e</em>, <em class="sig-param">orig_time</em>, <em class="sig-param">st</em>, <em class="sig-param">cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.utils.add_picks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add picks made to ObsPy event structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>dict</strong><strong>)</strong> (<em>sta</em>) – </p></li>
+<li><p><strong>(</strong><strong>ObsPy event object</strong><strong>)</strong> (<em>e</em>) – </p></li>
+<li><p><strong>(</strong><strong>ObsPy UTCDateTime object</strong><strong>)</strong> (<em>orig_time</em>) – </p></li>
+<li><p><strong>(</strong><strong>Obspy stream object</strong><strong>)</strong> (<em>st</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>e (ObsPy event object)</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>event containg added picks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.utils.compute_magnitude">
+<code class="sig-prename descclassname">AutoQuakePycker.utils.</code><code class="sig-name descname">compute_magnitude</code><span class="sig-paren">(</span><em class="sig-param">evt</em>, <em class="sig-param">st</em>, <em class="sig-param">cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.utils.compute_magnitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute local magnitude for event. Uses the same approach as Bie et al.
+(2019, SRL), although we don’t bother with checking signal-to-noise ratio
+this time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>evt</strong> (<em>ObsPy event object</em>) – </p></li>
+<li><p><strong>st</strong> (<em>Obspy event stream containing waveform data</em>) – </p></li>
+<li><p><strong>cfg</strong> (<em>Attribute-style dictionary containing picker configuration</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>evt</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ObsPy event object containing computed magnitude</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.utils.compute_noise_levels">
+<code class="sig-prename descclassname">AutoQuakePycker.utils.</code><code class="sig-name descname">compute_noise_levels</code><span class="sig-paren">(</span><em class="sig-param">tr</em>, <em class="sig-param">cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.utils.compute_noise_levels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get simple estimate of trace noise level using STA/LTA function - similar
+to thhat described by Baillard et al. (2014, BSSA).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.utils.copytree">
+<code class="sig-prename descclassname">AutoQuakePycker.utils.</code><code class="sig-name descname">copytree</code><span class="sig-paren">(</span><em class="sig-param">src</em>, <em class="sig-param">dst</em>, <em class="sig-param">symlinks=False</em>, <em class="sig-param">ignore=None</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.utils.copytree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make NLLOC run directory for each process</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>Copy source location</em><em> (</em><em>str</em><em>)</em>) – </p></li>
+<li><p><strong>dst</strong> (<em>Copy desination location</em><em> (</em><em>dst</em><em>)</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.utils.do_smooth">
+<code class="sig-prename descclassname">AutoQuakePycker.utils.</code><code class="sig-name descname">do_smooth</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">WT</em>, <em class="sig-param">sample_rate</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.utils.do_smooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple windowing smoothing function.
+(takes data to right of smoothing point).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> (<em>Time series to smooth</em><em> (</em><em>NumPy array</em><em>)</em>) – </p></li>
+<li><p><strong>WT</strong> (<em>Smoothing window length in seconds</em><em> (</em><em>float</em><em>)</em>) – </p></li>
+<li><p><strong>sample_rate</strong> (<em>sampling rate of time series</em><em> (</em><em>float</em><em>)</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>d_smooth</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>smoothed time series (NumPy array)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.utils.rotate">
+<code class="sig-prename descclassname">AutoQuakePycker.utils.</code><code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param">st</em>, <em class="sig-param">evt</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.utils.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate raw 3-component data to ZRT coordinate system.
+Throws up flag if rotation cannot be done
+(e.g. due to not all components spanning the same time)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>st</strong> (<em>ObsPy stream containing waveform data</em>) – </p></li>
+<li><p><strong>evt</strong> (<em>ObsPy event object containing epicentre information for rotation</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>st_sta_rot</strong> (<em>ObsPy event object containing rotated traces</em>)</p></li>
+<li><p><strong>done</strong> (<em>Boolean flag stating whether rotation was succesful or not</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="AutoQuakePycker.utils.write_evt">
+<code class="sig-prename descclassname">AutoQuakePycker.utils.</code><code class="sig-name descname">write_evt</code><span class="sig-paren">(</span><em class="sig-param">evt</em>, <em class="sig-param">ev_id</em><span class="sig-paren">)</span><a class="headerlink" href="#AutoQuakePycker.utils.write_evt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write refined event with new picks to stationxml file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>evt</strong> (<em>Obspy event object</em>) – </p></li>
+<li><p><strong>ev_id</strong> (<em>Event ID</em><em> (</em><em>str</em><em>)</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
