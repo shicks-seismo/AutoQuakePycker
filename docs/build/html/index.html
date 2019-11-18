@@ -79,7 +79,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">API docs:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">AutoQuakePycker</a></li>
 </ul>
@@ -151,18 +151,27 @@
 <p>AutoQuakePycker is a Python package for the automatic and iterative picking and relocation
 of local seismic events.
 AutoQuakePycker takes a first-guess catalogue of earthquake locations (I recommend the very
-easy-to-use and comprehnsive waveform back-project detection method of lassie (
-<a class="reference external" href="https://gitext.gfz-potsdam.de/heimann/lassie">https://gitext.gfz-potsdam.de/heimann/lassie</a>), and then refines P- and S-wave arrival times
+easy-to-use and comprehnsive waveform back-project detection method of lassie
+(<a class="reference external" href="https://gitext.gfz-potsdam.de/heimann/lassie">https://gitext.gfz-potsdam.de/heimann/lassie</a>), and then refines P- and S-wave arrival times
 to produce a robust relocation. For relocation, AutoQuakePycker wraps the NonLinLoc package
 (e.g. Lomax et al., 2009).</p>
+<p>AutoQuakePycker splits the input catalog into chunks to be run as different processes on
+multi CPUs for efficient processing of large datasets.</p>
+<div class="section" id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<p>Python functions (all available using Anconda - recommended method):
+* NumPy
+* SciPy
+* ObsPy (<a class="reference external" href="http://www.obspy.org">http://www.obspy.org</a>)</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p class="caption"><span class="caption-text">API docs:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">AutoQuakePycker</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="AutoQuakePycker.html">AutoQuakePycker package</a></li>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
