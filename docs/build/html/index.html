@@ -157,7 +157,8 @@ to produce a robust relocation. For relocation, AutoQuakePycker wraps the NonLin
 (e.g. Lomax et al., 2009). All waveform processing is based on the ObsPy package.</p>
 <p>The picking is based on a Kurtosis characteristic function (KCF) which improves pick precision by
 computing the KCF over several frequency bandwiths, window sizes and smoothing parameters
-(Baillard et al., 2009, BSSA, doi: 10.1785/0120120347).
+(Baillard et al., 2009, BSSA, doi: 10.1785/0120120347). This approach results in a greater number
+of, and higher precision, picked arrival times compared to traditional STA/LTA methods.
 Bad picks are refined and removed using a clustering procedure (Baillard et al., 2014), as well
 as using iterative outlier rejection and distance-dependent residual goals (Sippl et al., 2013, JGR).
 Please see the section below for a full description of the implemented workflow (some aspects
