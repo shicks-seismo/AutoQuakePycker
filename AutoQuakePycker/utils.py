@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Various utilities needed for running AutoQuakePycker
+Routines for plotting the results of AutoQuakePycker
+
 @author: Stephen Hicks
 """
 from obspy import read_inventory
@@ -55,10 +56,9 @@ def add_picks(sta, e, orig_time, st, cfg):
         orig_time (ObsPy UTCDateTime object) : event origin time.
         st (Obspy stream object) : stream of ObsPy traces containing data.
 
-    Returns:
+    Returns
     ----------
         e (ObsPy event object): event containg added picks.
-
     """
     from obspy.core.event import (Pick, WaveformStreamID, EvaluationMode,
                                   QuantityError)
@@ -92,7 +92,7 @@ def compute_magnitude(evt, st, cfg):
     st : Obspy event stream containing waveform data
     cfg : Attribute-style dictionary containing picker configuration
 
-    Returns:
+    Returns
     ----------
     evt : ObsPy event object containing computed magnitude
     """
@@ -209,7 +209,6 @@ def copytree(src, dst, symlinks=False, ignore=None):
     ----------
     src : Copy source location (str)
     dst : Copy desination location (dst)
-
     """
     import os
     import shutil
@@ -233,7 +232,7 @@ def do_smooth(d, WT, sample_rate):
         WT : Smoothing window length in seconds (float)
         sample_rate: sampling rate of time series (float)
 
-    Returns:
+    Returns
     ----------
         d_smooth : smoothed time series (NumPy array).
     """
