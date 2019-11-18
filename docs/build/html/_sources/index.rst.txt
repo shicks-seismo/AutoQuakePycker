@@ -20,9 +20,13 @@ multi CPUs for efficient processing of large datasets.
 Pre-requisites
 --------------
 Python functions (all available using Anconda - recommended method):
+
 * NumPy
+
 * SciPy
+
 * ObsPy (http://www.obspy.org)
+
 
 .. toctree::
    :maxdepth: 2
