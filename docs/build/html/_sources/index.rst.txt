@@ -6,8 +6,8 @@
 AutoQuakePycker
 ===========================================
 
-AutoQuakePycker is a Python package for the automatic and iterative picking, relocation and
-computation of focal mechanism [TODO] for local seismic events. 
+AutoQuakePycker is a Python package for the automatic and iterative picking, relocation, determination
+of local magnitudes, and computation of focal mechanism [TODO] for local seismic events. 
 AutoQuakePycker takes a first-guess catalogue of earthquake locations (I recommend the very
 easy-to-use and comprehnsive waveform back-project detection method of lassie 
 (https://gitext.gfz-potsdam.de/heimann/lassie), and then refines P- and S-wave arrival times 
